@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
+import ListTask from './components/ListTask';
+import AddTask from './components/AddTask';
+import Task from './components/Task';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>To DO List<span>⏳</span></h1>
+    <Routes>
+    <Route path="/" element={
+    <>
+    <div className='Appadd'>
+    <AddTask/>
+    </div>
+    <div className='Applist'>
+   <ListTask/>
+   </div>
+   </>
+    }/>
+    <Route path="/task/:id" element={<Task/>}/>
+   </Routes>
     </div>
   );
 }
